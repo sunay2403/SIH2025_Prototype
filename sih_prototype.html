@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monastery360 - A Digital Heritage Platform for Sikkim</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* A very light grey */
+            color: #1e293b; /* Slate 800 */
+        }
+        .hero-bg {
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+            url('https://images.unsplash.com/photo-1573398643956-2b9e6ade3456?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');  
+            background-size: cover;
+            background-position: center;
+            
+        }
+        .feature-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+        .ai-chat-bubble {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-slate-50">
+
+    <!-- Header -->
+    <header class="bg-white/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-violet-700">Monastery360</a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#features" class="text-slate-600 hover:text-violet-700 transition">Features</a>
+                <a href="#ai-planner" class="text-slate-600 hover:text-violet-700 transition">AI Planner</a>
+                <a href="#community" class="text-slate-600 hover:text-violet-700 transition">Community</a>
+            </nav>
+            <button class="md:hidden text-slate-800">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main class="pt-16">
+        <section class="hero-bg text-white min-h-[60vh] flex items-center">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4">Digitizing Heritage, Empowering Communities.</h1>
+                <p class="text-lg md:text-xl text-slate-200 max-w-3xl mx-auto mb-8">
+                    Discover the sacred monasteries of Sikkim like never before. An AI-powered, community-driven platform for cultural preservation and immersive tourism.
+                </p>
+                <a href="#features" class="bg-violet-600 hover:bg-violet-700 text-white font-bold py-3 px-8 rounded-full text-lg transition-transform transform hover:scale-105">Explore Features</a>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-800">A Complete Digital Ecosystem</h2>
+                    <p class="text-slate-500 mt-2">All the tools for an unforgettable and responsible journey.</p>
+                </div>
+                <!-- Features Grid -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Feature Cards will be injected here by JS -->
+                </div>
+            </div>
+        </section>
+        
+        <!-- AI Planner Section -->
+        <section id="ai-planner" class="py-20 bg-slate-50">
+            <div class="container mx-auto px-6">
+                 <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-800">Your Personal AI Travel Planner</h2>
+                    <p class="text-slate-500 mt-2">Let our AI craft the perfect Sikkimese adventure for you.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg max-w-4xl mx-auto">
+                    <div class="flex space-x-4">
+                        <div class="flex-shrink-0">
+                            <div class="w-12 h-12 rounded-full bg-violet-200 flex items-center justify-center">
+                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-violet-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <div id="ai-chat-container">
+                                <div class="ai-chat-bubble bg-slate-100 p-4 rounded-lg rounded-tl-none mb-2">
+                                    <p class="text-slate-700" id="ai-text">Namaste! How can I help you plan your trip to Sikkim today?</p>
+                                </div>
+                            </div>
+                            <div class="mt-4 flex space-x-2">
+                                <input type="text" id="userInput" placeholder="e.g., 'Plan a 3-day trip for me'" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-violet-500 focus:border-violet-500">
+                                <button id="sendBtn" class="bg-violet-600 text-white font-semibold px-6 py-2 rounded-lg hover:bg-violet-700">Send</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+         <!-- Community Spotlight Section -->
+        <section id="community" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-800">Powered by the Community</h2>
+                    <p class="text-slate-500 mt-2">Authentic experiences, shared by the people who know Sikkim best.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-slate-50 p-6 rounded-lg">
+                        <img src="https://placehold.co/400x300/c4b5fd/4c1d95?text=Local+Homestay" alt="Local Homestay" class="rounded-md mb-4 w-full h-48 object-cover">
+                        <h3 class="font-bold text-lg mb-2">Mountain View Homestay</h3>
+                        <p class="text-slate-600 text-sm mb-4">"Sharing my home and culture with travelers has been a blessing. Monastery360 made it possible."</p>
+                        <p class="font-semibold text-violet-700">- Pema, Local Host</p>
+                    </div>
+                    <div class="bg-slate-50 p-6 rounded-lg">
+                        <img src="https://placehold.co/400x300/a5b4fc/312e81?text=Cultural+Event" alt="Cultural Event" class="rounded-md mb-4 w-full h-48 object-cover">
+                        <h3 class="font-bold text-lg mb-2">Losoong Festival Guide</h3>
+                        <p class="text-slate-600 text-sm mb-4">"I can now share the schedule and significance of our local festivals with the world, directly."</p>
+                        <p class="font-semibold text-violet-700">- Tenzing, Community Guide</p>
+                    </div>
+                     <div class="bg-slate-50 p-6 rounded-lg">
+                        <img src="https://placehold.co/400x300/93c5fd/1e3a8a?text=Hidden+Monastery" alt="Hidden Monastery" class="rounded-md mb-4 w-full h-48 object-cover">
+                        <h3 class="font-bold text-lg mb-2">Hidden Gem: Lingthem Monastery</h3>
+                        <p class="text-slate-600 text-sm mb-4">"This platform helps us showcase the smaller, sacred places that are often overlooked by tourists."</p>
+                        <p class="font-semibold text-violet-700">- Local Monk Community</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-slate-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center text-slate-400">
+            <p>&copy; 2025 Monastery360. A project by Team VENOMS for SIH.</p>
+            <p>Digitizing Heritage, Empowering Communities.</p>
+        </div>
+    </footer>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Feature Data ---
+            const features = [
+                {
+                    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mb-4 text-violet-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>`,
+                    title: 'Community-Driven Platform',
+                    description: 'Authentic content from verified local guides who can share hidden monasteries, events, and homestays.'
+                },
+                {
+                    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mb-4 text-violet-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>`,
+                    title: 'Offline-First PWA',
+                    description: 'Our Progressive Web App works reliably even in remote areas of Sikkim with zero internet connectivity.'
+                },
+                {
+                    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mb-4 text-violet-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>`,
+                    title: 'Immersive AR/VR & 3D Modeling',
+                    description: 'Go beyond photos with virtual tours and interactive 3D models of sacred artifacts for deep exploration.'
+                },
+                {
+                    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mb-4 text-violet-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 9l4-4 4 4m0 6l-4 4-4-4" /></svg>`,
+                    title: 'AR-Integrated Maps',
+                    description: 'Navigate to monasteries, treks, and local stays with an easy-to-use and immersive augmented reality interface.'
+                },
+                {
+                    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mb-4 text-violet-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>`,
+                    title: 'Digital Archives',
+                    description: 'A permanent digital library safeguarding precious manuscripts, murals, and local histories for future generations.'
+                },
+                {
+                    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mb-4 text-violet-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" /></svg>`,
+                    title: 'Instant Bookings & Permits',
+                    description: 'Seamlessly book verified local homestays and secure digital permits for monastery visits to avoid queues.'
+                },
+                 {
+                    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mb-4 text-violet-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>`,
+                    title: 'Gamified Exploration',
+                    description: 'Turn cultural learning into an engaging adventure with digital pilgrimage trails and AR scavenger hunts.'
+                },
+                 {
+                    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mb-4 text-violet-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10-5 10z" /></svg>`,
+                    title: 'Translation Tool',
+                    description: 'Instantly bridge the communication gap between tourists and the local community with a real-time translator.'
+                },
+                 {
+                    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mb-4 text-violet-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10l2-2h8a1 1 0 001-1z" /></svg>`,
+                    title: 'Local Transport',
+                    description: 'Easily connect with and hire a network of trusted local transport owners for reliable travel between locations.'
+                }
+            ];
+            
+            const featuresGrid = document.querySelector('#features .grid');
+            features.forEach(feature => {
+                const card = document.createElement('div');
+                card.className = 'feature-card bg-white p-8 rounded-xl shadow-md border border-slate-100';
+                card.innerHTML = `
+                    ${feature.icon}
+                    <h3 class="font-bold text-xl mb-3 text-slate-800">${feature.title}</h3>
+                    <p class="text-slate-500">${feature.description}</p>
+                `;
+                featuresGrid.appendChild(card);
+            });
+
+            // --- AI Planner Logic ---
+            const aiTextElement = document.getElementById('ai-text');
+            const userInput = document.getElementById('userInput');
+            const sendBtn = document.getElementById('sendBtn');
+            const chatContainer = document.getElementById('ai-chat-container');
+
+            const aiResponses = [
+                "Of course! Generating a 3-day cultural immersion itinerary for you...",
+                "Itinerary ready! Day 1: Visit Rumtek Monastery, explore local handicrafts. Day 2: A scenic drive to Pemayangtse, with a homestay booking nearby. Day 3: A guided trek to a hidden monastery. Would you like me to book your permits?",
+                "I can certainly do that. Do you have any dietary preferences for the homestay?",
+                "Noted. I've found a perfect homestay with great reviews. I can also connect you with a local driver. Shall I proceed?",
+                "Excellent! Your personalized Sikkim adventure is booked. You will receive all details shortly."
+            ];
+            let responseIndex = 0;
+
+            const typeWriter = (text, element) => {
+                element.innerHTML = "";
+                let i = 0;
+                const typing = setInterval(() => {
+                    if (i < text.length) {
+                        element.innerHTML += text.charAt(i);
+                        i++;
+                    } else {
+                        clearInterval(typing);
+                    }
+                }, 20);
+            }
+
+            const handleSend = () => {
+                const userText = userInput.value.trim();
+                if (userText === '') return;
+
+                // Display user message
+                const userBubble = document.createElement('div');
+                userBubble.className = 'ai-chat-bubble bg-violet-600 text-white p-4 rounded-lg rounded-tr-none mb-2 ml-auto max-w-md';
+                userBubble.innerHTML = `<p>${userText}</p>`;
+                chatContainer.appendChild(userBubble);
+                
+                userInput.value = '';
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+
+                // Display AI response
+                setTimeout(() => {
+                    const aiBubble = document.createElement('div');
+                    aiBubble.className = 'ai-chat-bubble bg-slate-100 p-4 rounded-lg rounded-tl-none mb-2';
+                    const aiParagraph = document.createElement('p');
+                    aiParagraph.className = 'text-slate-700';
+                    aiBubble.appendChild(aiParagraph);
+                    chatContainer.appendChild(aiBubble);
+
+                    const responseText = aiResponses[responseIndex % aiResponses.length];
+                    typeWriter(responseText, aiParagraph);
+                    responseIndex++;
+                    chatContainer.scrollTop = chatContainer.scrollHeight;
+                }, 1000);
+            };
+
+            sendBtn.addEventListener('click', handleSend);
+            userInput.addEventListener('keypress', (e) => {
+                if(e.key === 'Enter') {
+                    handleSend();
+                }
+            });
+
+        });
+    </script>
+</body>
+</html>
